@@ -1,223 +1,180 @@
 # 🚀 Terraform AWS 3-Tier DevOps Architecture (ap-south-1)
 
-This project demonstrates how to provision a secure 3-tier architecture on AWS using Terraform.
-
-The infrastructure includes:
-- VPC
-- Public and Private Subnets (Multi-AZ)
-- Internet Gateway
-- Route Tables
-- Security Groups
-- EC2 Web Server (Public Subnet)
-- RDS MySQL Database (Private Subnets)
-
-Region Used: **ap-south-1 (Mumbai)**
+This project provisions a secure 3-tier architecture on AWS using Terraform in the **Mumbai Region (ap-south-1)**.
 
 ---
 
-## 🏗 Architecture Overview
+## 🏗 Architecture Diagram
+
+![3-Tier AWS Architecture](docs/architecture/3-tier%20AWS%20architecture%20diagram.png)
+
+---
+
+# 📌 Infrastructure Overview
 
 - VPC: 10.0.0.0/16
-- Public Subnet: ap-south-1a
-- Private Subnet 1: ap-south-1a
-- Private Subnet 2: ap-south-1b
-- EC2 in Public Subnet
-- RDS in Private Subnet (Multi-AZ Subnet Group)
+- Public Subnet (ap-south-1a)
+- Private Subnet 1 (ap-south-1a)
+- Private Subnet 2 (ap-south-1b)
+- Internet Gateway
+- Route Table (0.0.0.0/0 → IGW)
+- EC2 Web Server (Public Subnet)
+- RDS MySQL Database (Private Multi-AZ Subnet Group)
 
 ---
 
-# 🔄 Terraform Workflow
+# 🔄 Terraform Execution Workflow
 
 ---
 
-## Step 1: Terraform Initialization
+## 1️⃣ Terraform Initialization
 
 ```bash
 terraform init
 ```
 
-📸 Screenshot:
-`01-terraform-init-success.png`
+![Terraform Init](docs/screenshots/01-terraform-init-success.png)
 
 ---
 
-## Step 2: Validate Configuration
+## 2️⃣ Validate Configuration
 
 ```bash
 terraform validate
 ```
 
-📸 Screenshot:
-`02-terraform-validate-success.png`
+![Terraform Validate](docs/screenshots/02-terraform-validate-success.png)
 
 ---
 
-## Step 3: Apply Infrastructure
+## 3️⃣ Apply Infrastructure
 
 ```bash
 terraform apply
 ```
 
-📸 Screenshot:
-`03-terraform-apply-execution.png`  
-📸 Screenshot:
-`07-terraform-apply-completed-successfully.png`
+![Terraform Apply Execution](docs/screenshots/03-terraform-apply-execution.png)
+![Terraform Apply Completed](docs/screenshots/07-terraform-apply-completed-successfully.png)
 
 ---
 
-# 🌐 VPC & Networking Setup
+# 🌐 Networking Setup
 
 ---
 
 ## VPC Configuration
 
-- CIDR: 10.0.0.0/16
-
-📸 Screenshot:
-`14-vpc-cidr-details.png`  
-`18-vpc-overview.png`
+![VPC CIDR](docs/screenshots/14-vpc-cidr-details.png)
+![VPC Overview](docs/screenshots/18-vpc-overview.png)
 
 ---
 
-## Subnets Configuration
+## Subnets (Public + Multi-AZ Private)
 
-- 1 Public Subnet
-- 2 Private Subnets (Multi-AZ)
-
-📸 Screenshot:
-`15-subnets-public-private-overview.png`  
-`10-rds-subnet-az-configuration.png`
+![Subnets Overview](docs/screenshots/15-subnets-public-private-overview.png)
+![RDS Multi-AZ Subnets](docs/screenshots/10-rds-subnet-az-configuration.png)
 
 ---
 
 ## Internet Gateway
 
-📸 Screenshot:
-`17-internet-gateway-overview.png`  
-`19-internet-gateway-attached.png`
+![Internet Gateway](docs/screenshots/17-internet-gateway-overview.png)
+![IGW Attached](docs/screenshots/19-internet-gateway-attached.png)
 
 ---
 
-## Route Table Configuration
+## Route Table
 
-- Public Route: 0.0.0.0/0 → IGW
-
-📸 Screenshot:
-`16-route-table-public-internet-access.png`  
-`20-route-table-association.png`
+![Route Table Public Access](docs/screenshots/16-route-table-public-internet-access.png)
+![Route Table Association](docs/screenshots/20-route-table-association.png)
 
 ---
 
-# 🔐 Security Configuration
+# 🔐 Security Groups
 
 ---
 
 ## EC2 Security Group
 
-- SSH (22)
-- HTTP (80)
+- Port 22 (SSH)
+- Port 80 (HTTP)
 
-📸 Screenshot:
-`05-ec2-security-group-inbound-rules.png`  
-`22-ec2-security-group-attached.png`
+![EC2 SG Rules](docs/screenshots/05-ec2-security-group-inbound-rules.png)
+![EC2 SG Attached](docs/screenshots/22-ec2-security-group-attached.png)
 
 ---
 
 ## RDS Security Group
 
-- MySQL (3306) allowed from EC2 Security Group only
+- Port 3306 allowed from EC2 Security Group only
 
-📸 Screenshot:
-`21-rds-security-group-mysql-access.png`
-
----
-
-# 🖥 EC2 Instance
-
-- Instance Type: t2.micro
-- Public IP enabled
-- Deployed in Public Subnet
-
-📸 Screenshot:
-`04-ec2-instance-running.png`
-
-### SSH Access Verified
-
-📸 Screenshot:
-`11-ec2-ssh-connection-success.png`
+![RDS SG Rules](docs/screenshots/21-rds-security-group-mysql-access.png)
 
 ---
 
-# 🗄 RDS Database (MySQL)
+# 🖥 EC2 Deployment
+
+![EC2 Running](docs/screenshots/04-ec2-instance-running.png)
+
+### SSH Verified
+
+![EC2 SSH Success](docs/screenshots/11-ec2-ssh-connection-success.png)
+
+---
+
+# 🗄 RDS Deployment
 
 - Engine: MySQL 8.0
-- Instance Class: db.t3.micro
-- Multi-AZ Subnet Group
-- Private Access Only
+- Instance Type: db.t3.micro
+- Multi-AZ DB Subnet Group
 
-📸 Screenshot:
-`08-rds-instance-available-mysql.png`  
-`09-rds-db-subnet-group-multi-az.png`
+![RDS Available](docs/screenshots/08-rds-instance-available-mysql.png)
+![DB Subnet Group](docs/screenshots/09-rds-db-subnet-group-multi-az.png)
 
-### Database Connection Verified
+### Database Connectivity Verified
 
-📸 Screenshot:
-`12-rds-database-connection-test.png`  
-`13-rds-database-schema-created.png`
+![RDS Connection Test](docs/screenshots/12-rds-database-connection-test.png)
+![Database Created](docs/screenshots/13-rds-database-schema-created.png)
 
 ---
 
-# 🧠 Challenges Faced & Resolved
+# 🧠 Real-World Debugging Experience
 
-## 1️⃣ AZ Coverage Error
-RDS requires minimum 2 Availability Zones for DB Subnet Group.
+During implementation, the following issues were resolved:
 
-Solution:
-Created second private subnet in ap-south-1b.
+### 1️⃣ Availability Zone Coverage Error
+RDS required minimum 2 AZs for DB Subnet Group.
 
----
-
-## 2️⃣ DB Instance Class Compatibility Error
+### 2️⃣ Instance Class Compatibility
 db.t2.micro not supported with MySQL 8.0 in ap-south-1.
 
-Solution:
-Changed instance class to db.t3.micro.
+### 3️⃣ Password Policy Restriction
+Special characters such as '/', '@', '"', and non-ASCII characters were rejected.
 
 ---
 
-## 3️⃣ Password Policy Error
-RDS does not allow special characters such as '/', '@', '"', space, or non-ASCII characters.
-
-Solution:
-Used valid password format with allowed characters (e.g., Admin12345!)
-
----
-
-# 🧹 Destroy Infrastructure
-
-After testing, infrastructure was destroyed to avoid charges.
+# 🧹 Infrastructure Cleanup
 
 ```bash
 terraform destroy
 ```
 
-📸 Screenshot:
-`23-terraform-destroy-success.png`
+![Terraform Destroy](docs/screenshots/23-terraform-destroy-success.png)
 
 ---
 
-# ✅ Key Learnings
+# ✅ Key Skills Demonstrated
 
-- Infrastructure as Code using Terraform
-- Multi-AZ RDS deployment
-- VPC and subnet architecture
-- Security Group referencing
-- AWS API error debugging
-- State management and plan execution
+- Infrastructure as Code (Terraform)
+- AWS VPC & Subnet Architecture
+- Multi-AZ Database Deployment
+- Secure Security Group Referencing
+- Debugging AWS API Errors
+- Cloud Infrastructure Lifecycle Management
 
 ---
 
-# 📌 Author
+## 👨‍💻 Author
 
 Chetan Kumar  
-Cloud & DevOps Engineer (Aspirant)
+
