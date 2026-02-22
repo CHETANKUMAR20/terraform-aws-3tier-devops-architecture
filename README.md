@@ -180,5 +180,5 @@ terraform destroy
 
 ## 👨‍💻 Author
 
-Chetan Kumar  
+©  
 
