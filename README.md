@@ -1,10 +1,18 @@
 <p align="center">
 
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-success?logo=githubactions&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-v1.6+-623CE4?logo=terraform&logoColor=white)
-![Cloud](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws&logoColor=white)
-![Deployment](https://img.shields.io/badge/Deployment-SSH-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<a href="https://github.com/CHETANKUMAR20/terraform-aws-3tier-devops-architecture">
+  <img src="https://img.shields.io/badge/GitHub-Repository-black?logo=github" />
+</a>
+
+<img src="https://img.shields.io/github/actions/workflow/status/CHETANKUMAR20/terraform-aws-3tier-devops-architecture/terraform.yml?label=CI&logo=githubactions&logoColor=white" />
+
+<img src="https://img.shields.io/badge/Terraform-v1.6+-623CE4?logo=terraform&logoColor=white" />
+
+<img src="https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws&logoColor=white" />
+
+<img src="https://img.shields.io/badge/Deployment-SSH-blue" />
+
+<img src="https://img.shields.io/badge/License-MIT-yellow" />
 
 </p>
 
