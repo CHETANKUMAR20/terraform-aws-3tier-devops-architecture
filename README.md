@@ -54,6 +54,11 @@ terraform apply
 ```
 
 ![Terraform Apply Execution](docs/screenshots/03-terraform-apply-execution.png)
+
+```bash
+terraform apply : completed!
+```
+
 ![Terraform Apply Completed](docs/screenshots/07-terraform-apply-completed-successfully.png)
 
 ---
