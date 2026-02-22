@@ -178,4 +178,5 @@ terraform destroy
 
 ---
 
-## 👨‍💻 ©
+---
+Built using Terraform and AWS.
