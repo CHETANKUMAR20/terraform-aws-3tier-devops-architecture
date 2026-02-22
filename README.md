@@ -1,3 +1,8 @@
+![Repository Health](https://img.shields.io/badge/Repository%20Health-Passing-brightgreen)
+![Cloud](https://img.shields.io/badge/Cloud-AWS-orange)
+![Deployment](https://img.shields.io/badge/Deployment-SSH-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 # 🚀 Terraform AWS 3-Tier DevOps Architecture (ap-south-1)
 
 This project provisions a secure 3-tier architecture on AWS using Terraform in the **Mumbai Region (ap-south-1)**.
