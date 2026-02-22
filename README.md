@@ -1,7 +1,12 @@
-![Repository Health](https://img.shields.io/badge/Repository%20Health-Passing-brightgreen)
-![Cloud](https://img.shields.io/badge/Cloud-AWS-orange)
+<p align="center">
+
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-success?logo=githubactions&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-v1.6+-623CE4?logo=terraform&logoColor=white)
+![Cloud](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws&logoColor=white)
 ![Deployment](https://img.shields.io/badge/Deployment-SSH-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+
+</p>
 
 # 🚀 Terraform AWS 3-Tier DevOps Architecture (ap-south-1)
 
